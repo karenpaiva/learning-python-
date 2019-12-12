@@ -760,3 +760,198 @@ while numero>=0:# tem que ser maior q 0
 
 ###Caítulo 6###
 #listas
+#listas representam o armazenamento de valores acessados por um indice
+#podem ter vários tipos de estrutura na mesma lista (string, int,float) e até mesmo outra lista
+#seu tamanho é igual a quantidades de elementos que ela tem 
+# a primeira posição da lista é a 0 lista[0] é a primeira posição
+#para criar uma lista usa-se os colchetes [] e uma igualdade
+#as unidades da lista devem ser separadas por virgula
+z=[15,8,9]
+#para acessar um elemento da lista é só indicar a lista e a sua posição entre colchetes
+z[1]
+#para mudar um intem é só indicar a posição e colocar a igualdade
+z[1]=90
+print(z)
+#programa para o calculo da média das notas de um aluno
+notas=[6,7,5,8,9]
+soma=0
+x=0 
+while x<5:# são 5 notas, outra forma de escrever é while x<len(notas) a função len dá o tamanho
+    soma+=notas[x] #soma= soma+notas[posição da lista]
+    x+=1 #vai aumentando as pocições da lista de notas e retorna o que está dentro da lista
+print('Média:%5.2f'%(soma/x)) 
+#para criar uma lista de notas com valores de input
+notas=[0,0,0,0,0]#a lista com elementos=0 pois eles serão substituidos pelo input
+soma=0
+x=0#posição dos elementos da lista
+while x<len(notas):#posição vai ser de 0 a 4 
+    notas[x]=float(input('Nota %d:' %x))# input vai substituir o elemento na posição x da lista 
+    soma+=notas[x]#acumunla a soma conforme as posições aumentam
+    x+=1
+x=0 # para imprimir a lista deve reiniciar o x para 0
+while x<len(notas):
+    print('Nota %d:%5.2f.'%(x,notas[x]))#deve ser a posição da nota não a lista 
+    x+=1
+print('Média é:%5.2f'%(soma/x))
+
+#indice 
+#deve pedir o input e armazenar na lista 
+#quando soloicitado a posição, realizar o print do item correspondente
+numeros=[0,0,0,0,0] #preparar lista para receber os inputs
+x=0
+while x<5:
+    numeros[x]=float(input('Digite o número %d para a lista:'%(x+1)))# o x+1 foi usado pq a posição da lista começa em 0
+    x+=1
+while True:
+    escolhido= int(input('Qual posição quer imprimir ou 0 para sair:'))
+    if escolhido==0:
+        break
+    else:
+        print('Você escolheu o número %d'%(numeros[escolhido-1]))
+#cópia de lista
+#quando temos duas listas e as igualamos(=) elas estão atribuidas uma a outra 
+#quando fazemos a substituição em uma delas a outra é automaticamente alterada
+#uma lista é objeto espelho da outra quando alteramos uma a outra tem a mesma referência
+#para criar uma cópia independente colocamos o (:) na frente da nova cópia a é criado uma nova memória
+#as listas podem ser selecionadas parecidos com funçoes semelhantes as strings
+x=[1,2,3,4,5]
+print(x[:2])#referentes aos numeros antes de posição
+print(x[2:]) #referentes aos numeros depois da posição
+#tamanho da lista 
+#é usado a função len
+print(len(x))
+#repetição usado len
+l=[3,7,8]
+x=0
+while x<len(l):#o limite de repetição é o tamanho da lista
+    print(l[x])
+    x+=1
+#adição de elementos a uma lista
+#usa-se a função append que é usada após o objeto com um ponto e o valor a ser adicionado fica entre parenteses
+#objeto.append(novo valor)
+#criação de uma lista com valores inputado
+l=[]#lista vazia para a adição de elementos
+while True:
+    n=int(input('Adicione o valor a lista ou 0 para sair:'))
+    if n==0:
+        break
+    l.append(n)#adiciona os valores até a parada do programa 
+x=0
+while x<len(l):#programa para montar a lista com os valores recem acessados
+    print(l[x])
+    x+=1
+#outra forma de adicionar valores a lista é:
+#l=l+[valor] um objeto com uma mais na frente 
+#mas assim como a função append só pode ser adicionado uma valor por vez 
+#se a função append for usada para adicionar mais de um valor ela vai gerar uma pequena lista
+#ela transforma toda a pequena lista em um objeto e a insere
+#para a adicionar mais de um valor a lista usa-se a função extend
+
+l=[1]
+l.append(7)# a função append só adiciona um objeto
+l.extend([9,1,4])#se forem colocados mais de 2 numeros tem que colocar colchetes[]
+print(l)
+#exercicio 6.2
+lista1=[]
+while True:
+    n1=int(input('Digite valor para a contrução da primeira lista ou 0 para sair:'))
+    if n1==0:
+        break
+    lista1.append(n1)
+print(lista1)
+lista2=[]
+while True:
+    n2=int(input('Digite valor para a contrução da segunda lista ou 0 para sair:'))
+    if n2==0:
+        break
+    lista2.append(n2)
+print(lista2)
+lista3=lista1[:]
+lista3.extend(lista2)
+print(lista3)
+#exercicio 6.3
+# um programa que percorra duas lista e gere uma terceira sem numero repetido
+lista1=[]
+while True:
+    n1=int(input('Digite valor para a contrução da primeira lista ou 0 para sair:'))
+    if n1==0:
+        break
+    lista1.append(n1)
+print(lista1)
+lista2=[]
+while True:
+    n2=int(input('Digite valor para a contrução da segunda lista ou 0 para sair:'))
+    if n2==0:
+        break
+    lista2.append(n2)
+print(lista2)
+lista3=lista1[:]
+lista3.extend(lista2)#junção das duas listas
+lista4=[]#uma nova lista deve ser criada e nela serão adicionados os nunmeros não repetidos
+x=0#posição inicial da lista 3
+while x<len(lista3):#até a lista 3 acabar
+    y=0#posição inicial da lista 4
+    while y<len(lista4):
+        if lista3[x]==lista4[y]:#se o número já estiver na lista quebra o loop e vai para o próximo item
+            break
+        y=y+1
+    if y==len(lista4):
+        lista4.append(lista3[x])
+    x+=1
+x=0
+print(lista4)
+#para remover elementos da lista
+#usa-se a função del
+#del lista[posição do elemento na lista]
+#para remover uma fatia de uma lista usa-se a funçã del tambem
+l=list(range(101))#ira criar uma lista com uma amplitude de 0 a 100
+print(l)
+del l[1:99]
+print(l)
+#usando lista como fila 
+#em uma fila a inclusão é sempre realizada no fim e a remoção ocorre no inicio
+#regra do first in first out 
+#para que o elemento seja retirado sem ser excluido usa-se a função pop
+#o pop retorma o valor do elemento depois o exclui
+ultimo=10 #o ultimo elemento será o 10
+fila=list(range(1,ultimo+1))#listagem da amplitude de 1 até o ultimo
+while True:
+    print('\n Existem %d clientes na fila'%len(fila))
+    print('Fila atualf:',fila)
+    print('Digite F para adicionar 1 cliente no fim da fila, ou A para realizar o atendimento, ou S para sair:')
+    operaçao=input('Operação(F,A ou S)')
+    if operaçao=='A':
+        if (len(fila))>0:
+            atendido=fila.pop(0)# o atendido vai ser extraido mas antes de ser extraido ele será apresentado
+            print('Cliente %d atendido'%atendido)
+        else:
+            print('Fila vazia!Niguem para atender')
+    elif operaçao=='F':
+        ultimo+=1
+        fila.append(ultimo)#acrescimo de mais um ao fim da fila
+    elif operaçao=='S':
+        break
+    else:
+        print('Operação invalida!Digite A,F ou S')
+#listas tambem podem ser usadas como pilhe de pratos
+#regra last in first out
+#o ultimo a chegar é o primeiro a sair
+pratos=10 #serão 10 pratos e o ultimo é o 10
+pilha=list(range(1,pratos+1))#lista de amplitude do primeiro ao ultimo
+while True:
+    print('Existem %d pratos'%len(pilha))
+    print('Digite E para empilhar um novo prato, ou D para desempilhar ou S para sair')
+    operaçao=input('Digite a operação(D,E ou S):')
+    if operaçao=='D':
+        if (len(pilha))>0:
+            lavado=pilha.pop(-1)#essa é a diferença entre lista em fila e a lista em pilha, pois será retirado o ultimo a ser colocado
+            print('%d pratos lavados'%lavado)
+        else:
+            print('Pilha vazia')
+    elif operaçao=='E':
+        pratos+=1#novo prato adicionado
+        pilha.append(pratos)
+    elif operaçao=='S':
+        break
+    else: 
+        print('Operação invalida')
