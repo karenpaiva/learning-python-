@@ -73,7 +73,6 @@ print(True or False)
 salário=100
 idade=20
 salário>1000 and idade>18
-
 100>1000 and 20>18
 False and True
 False
@@ -361,9 +360,6 @@ if instalação=='I':
         print('O valor é de R$ 0,60.')
 else:
     break
-
-
-
 ###Capítulo 5###
 #Repetições são usadas para execultar a mesma parte de um programam várias vezes
 #elas normalmente dependem de uma condição
@@ -757,7 +753,6 @@ while numero>=0:# tem que ser maior q 0
     else:
         print('Esse número não é primo')
 #não fiz 2 dos ultimos exercicios o do palindromo e o da raiz quadrada
-
 ###Caítulo 6###
 #listas
 #listas representam o armazenamento de valores acessados por um indice
@@ -955,3 +950,76 @@ while True:
         break
     else: 
         print('Operação invalida')
+#exercicio 6.7
+#criar uma pilha para verificar se os parenteses foram abertos e fechados na ordem correta
+parenteses=input('Indique a sequência de parenteses para ser verificado a ordem:')
+x=0
+pilha=[]#pilha usada para verificação
+while x<len(parenteses):#verificação completa do input 
+    if parenteses[x]=='(': # se tiver o parenteses aberto ele adiciona um item a pilha
+        pilha.append(0)
+    if parenteses[x]==')':# se tiver o parenteses fechado ele retira um item a pilha
+        if len(pilha)>0: #apenas se a pilha já estive sido aberta
+            pilha.pop(0)
+        else:
+            pilha.append(')')
+            break
+    x+=1
+if len(pilha)==0:#adiciona e retira o mesmo valor igualmente logo a pilha estará vazia
+    print('OK')
+else:
+    print('Erro!')
+# é possível realizar pesquisas em determinada lista afim de verificar se o elemento está na lista
+#para isso deve passar do primeiro ao ultimo item da lista e analisar se o correspondente está disponível
+l=[15,7,27,39]#lista inicial a ser usada como banco
+p=int(input('Digite o valor a procurar:'))#será o valor do input a ser procurado na lista fornecida
+achou=False #essa booleana é usada para verificar se saiu da repetição porque já achou oq estava procurando ou se já percorreu todos os elementos e não achou
+x=0#posição inicial da lista
+while x<len(l):#procurar por todos os elementos da lista
+    if l[x]==p:
+        achou=True #o achou só será verdadeiro se o elemento procurado for igual ao encontrado
+        break
+    x+=1
+if achou:#verifica o achou para ver oque vei ser impresso
+    print('%d achado na posição %d'%(p,x))#pode ser x+1 pois a lista se inicia pelo posição 0
+else:
+    print('%d não encontrado'%p)
+#exercicio 6.8
+# realizar a procura sem a variavel achou
+l=[15,7,27,39]
+p=int(input('Digite o valor a procurar:'))
+x=0
+while x<len(l):
+    if l[x]==p:
+        break
+    x+=1
+if x<len(l): #a dica dizia para verificar a consição de saida do while logo a codição do if = a do while
+    print('%d achado na posição %d'%(p,x))
+else:
+    print('%d não encontrado'%p)
+#exercicio 6.9 e 6.10
+# realizar a procura com dois valores e indicar qual foi encontrado primeiro
+l=[15,7,27,39,56,34,98,76,4,1,35]
+p=int(input('Digite o valor a procurar:'))
+v=int(input('Digite outro valor a procurar:'))
+achoup=False
+achouv=False
+x=0
+y=0
+while x<len(l):
+    if l[x]==p:
+        achoup=True
+        break
+    x+=1
+while y<len(l):
+    if l[y]==v:
+        achouv=True
+        break
+    y+=1
+if achoup and achouv and x<y: 
+    print('%d achado na posição %d foi encontrado primeiro e %d foi encontrado depois na posição %d.'%(p,x,v,y))
+elif achouv and y<x:
+    print('%d achado na posição %d foi encontrado primeiro e %d foi encontrado depois na posição %d.'%(v,y,p,x))
+else:
+    print('%d e %d não encontrado'%(p,v))
+        
