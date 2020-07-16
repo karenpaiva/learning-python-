@@ -1,0 +1,36 @@
+#Operadores lógicos
+#Usam uma variável lógica:True ou False
+#3 tipos de operadores lógicos: not, and, or
+# o operador not é o oposto
+print(not True)
+print(not False)
+#e como oposto entende-se que, not True é False e not False é True
+#operador and
+#só é verdadeiro, ou seja , True quando: True and True
+#As outras 3 combinações com and são False: False and False, True and False , False and True
+print(True and True)
+print(True and False)
+#operador or
+#apenas a combinação False or False será False
+#as outras combinações serão True, quando for utilizado o or 
+print(False or False)
+print(True or False)
+#pode-se construir expressões lógicas com mais de um operador lógico
+#a ordem de leitura dos operadores é: not-and-or
+#Exemplo
+salário=1000
+idade=20
+salário>1500 and idade>18
+1000>1500 and 20>18 #afirmação false seguida de afirmação verdadeira
+False and True
+False
+#Exercício: pessoa deve pagar imposto se o salário for maior que 1200,00
+salário=1000
+print(salário>1200)
+salário=1500
+print(salário>1200)
+#Exercício: aluno é aprovador se tiver nota em todas as matérias maior que 7
+matéria1=7
+matéria2=8
+matéria3=7
+print(matéria1>7 and matéria2>7 and matéria3>7)
