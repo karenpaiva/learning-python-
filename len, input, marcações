@@ -1,0 +1,108 @@
+# a função len determina o tamanho da string
+print(len('abc'))
+print(len('introdução a pyhton'))
+#para manipulação de string usa-se o []
+a='abcde'
+print(a[1])
+# as strings começão a ser contadas do 0 por isso [1] for igual a 'b'
+#para obter a letra 'a' é preciso usar o [0]
+# sempre lembras de colocar a variável que se quer utilizar no parenteses
+# é possível unir dus ou mais strings pela concatenação
+print(a+'fgh')
+#composição, é o mais abstrato e difícil de entender
+x=15
+'João tem %d anos' %x
+print('João tem %d anos' %x)
+#o %d é um marcador, indica a posição dentro da string onde teremos um valor inteiro
+#há 3 marcador mais usados, %d=números inteiros, %s= strings, %f=números decimais
+#o número entre o% e o 'd' indica quantos números irão aparecer quando a função print for execultada
+idade=7
+print('%d'%idade)
+print('%02d'%idade)
+print('%2d'%idade)
+print('%-2d'%idade)
+# o mesmo ocorre do o %f, só que ele possui números flutuantes após o '.'
+valor=34.95
+print('%f'%valor)
+print('%2.2f'%valor)
+#se o número antes do '.' por mais q o número real será adicionado um espaso antes assim como no %d
+print('%14.2f'%valor)
+#é possível fazer a composição de vários marcadores
+nome='Pedro'
+idade=35
+dinheiro=1050.59
+print('%s tem %d anos e R$%4.2f no banco.'%(nome, idade, dinheiro))
+# fatiamento de strings
+a='abcde'
+print(a[0:2])
+print(a[:2])
+print(a[2:])
+#sequência de tempo os valores vão se adicionando
+divida=0
+compra=100
+divida=divida+compra
+compra=200
+divida=divida+compra
+print(divida)
+#entrada de dados fornacido pelo usuário a partir da função input, 'in put' como 'colocar dentro' 
+x=input('Digite um número:')
+print(x)
+# o input pode ser controlado como string
+nome=input('Digite seu nome:')
+print('Você digitou %s' %nome)
+print('Olá %s!'%nome)
+# a entrada do input é como string para transformar em um número usamos a função int
+# a função int converte a string que possui um valor em um número inteiro
+# a função float converte a string em um número decimal ou flutuante
+anos=int(input('Anos de serviço:'))
+valor_ano=float(input('Valor por ano:'))
+bonus=anos*valor_ano
+print('Bônus de R$%5.2f bônus'%bonus)
+#Exercícios
+#Pedir 2 números interios e imprimir a soma dos dois
+numero1=int(input('Digite um número:'))
+numero2=int(input('Digite outro número:'))
+soma=numero1+numero2
+print('A soma dos números é : %d'%soma)
+#Converter um valor em metros em centimetros
+metros=float(input('Digite um valor em metros:'))
+centimetros=metros*1000
+print('O valor em %1.2f metros são %4.2f centimetros' %(metros, centimetros))
+#Um programa que leia dias, horas, minutos e segundos e os converta em segundos
+horas=int(input('Digite o quantas horas:'))
+minutos=int(input('Digite o quantos minutos:'))
+segundos=int(input('Digite o quantos segundos:'))
+soma_segundos=((horas*3600)+ (minutos*60)+ segundos)
+print('%d horas %d minutos e %d segundos são %d segundos'%(horas, minutos, segundos, soma_segundos))
+#calcular o aumento de salario, deve pedir o valor do salario a porcentagem do aumento e exibir o valor do aumento e o novo salario
+salário=float(input('Digite seu salário:'))
+aumento=float(input('Digite a porcentagem do aumento:'))
+valor_aumento=salário*(aumento/100)
+salário=salário+valor_aumento
+print('O valor do aumento é %5.2f e seu novo salário é %5.2f.'%(valor_aumento, salário))
+#calcular o desconto de uma mercadoria, deve pedir o preço da mercadoria o percentual de desconto e exibir o valor do desconto e o preço a pargar
+mercadoria=float(input('Preço da mercadoria:'))
+desconto=float(input('Valor do desconto:'))
+valor_desconto=mercadoria*(desconto/100)
+mercadoria=mercadoria-valor_desconto
+print('O valor do desconto é %5.2f e o novo valor da mercadoria é %5.2f.'%(valor_desconto, mercadoria))
+#calcular o tempo de uma viajem, pedir a distância a percorrer e a velocidade média
+distância=float(input('Qual a distância a percorrer?'))
+velocidade=float(input('Qual a velocidade média?'))
+tempo=distância/velocidade
+print('O tempo de viajem é de aproximadamente de %3.1f horas'%tempo)
+celsius=float(input('Qual a temperatura?'))
+fahrenheit=((9*celsius)/5)+32
+print(' A temperatura em fahrenheit é de %2.2f graus.'%fahrenheit)
+#calcular o preço a pagar pelo aluguel do carro
+#perguntar km percorridos, quantos dias e o preço é R$60 por dia e R$0,15 por km
+km=float(input('Quantos kilometros foram percorridos?'))
+dia=int(input('Quantos dias o carro foi alugado?'))
+preço=(km*0.15)+(dia*60)
+print('O preço a pagar é de R$%5.2f.'%preço)
+#calcular a redução do tempo de vida de um fumante
+#quantos cigarros por dia e quantos anos, 10 minutos por cigarro 
+cigarros=int(input('Quantos cigarros você fuma por dia?'))
+anos=float(input('Quantos anos você fuma?'))
+redução=((anos*365)*(cigarros*10))/60
+print('A redução de %3.1f dias de vida'%redução)
