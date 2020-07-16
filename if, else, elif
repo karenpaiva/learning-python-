@@ -1,0 +1,164 @@
+#condições: if, else e elif
+#if é o mesmo que 'se'
+#funciona assim: se a condição for verdadeira faça o seguinte
+#modelo: if 'condição' ':'
+a=int(input('Primeiro número:'))
+b=int(input('Segundo número:'))
+if a>b:
+    print('O primeiro número é maior!')
+if b>a:
+    print('O segundo número é maior!')
+# atenção aos ':' que vem depois da condição
+# atenção que a linha seguida aos ':' está mais a direita que a linha anterior
+idade=int(input('Qual a idade do seu carro?'))
+if idade<=3:
+    print('Seu carro é novo!')
+if idade>3:
+    print('Seu carro é velho!')
+#programa que pergunte a velocidade do carro. Se passar dos 80km/h deve dizer que o usuário foi multado
+#quando for multado o valor cobrado será de R$ 5 por km acima dos 80km/h
+velocidade=int(input('Qual sua velocidade?'))
+if velocidade>80:
+    print('Você foi multado!')
+if velocidade>80:
+    print('Sua multa foi de R$%d'%((velocidade-80)*5))
+#calculo do imposto de renda
+salário=float(input('Digite o salário para calculo do imposto:'))
+base=salário
+imposto=0
+if base>3000:
+    imposto=imposto+((base-3000)*0.35)
+    base=3000
+if base>1000:
+    imposto=imposto+((base-1000)*0.20)
+print('Salário: R$%6.2f Imposto a pagar:R$%6.2f'%(salário, imposto))
+#um programam que lê 3 números e imprima o maior e o menor
+número1=int(input('Primeiro número:'))
+número2=int(input('Segundo número:'))
+número3=int(input('Terceiro número:'))
+if número1>número2 and número1>número3:
+    print(número1)
+if número1<número2 and número1<número3:
+    print(número1)
+if número2>número1 and número2>número3:
+    print(número2)
+if número2<número1 and número2<número3:
+    print(número2)  
+if número3>número2 and número3>número1:
+    print(número3)
+if número3<número2 and número3<número1:
+    print(número3)
+#programa q pergunta o salário do funcionário e calcula o aumento
+#salário>1250.00 aumento de 10% salário<=1250.00 aumento de 15%
+salário=float(input('Qual seu salário?'))
+if salário>1250.00:
+    print('Seu aumento é de R$%5.4f'%(salário*0.10))
+if salário<1250.00:
+    print('Seu aumento é de R$%5.4f'%(salário*0.15))
+#else é usado caso o resultado da primeira condição for falsa para não usar outro if
+#usando o exeplo do carro
+idade=int(input('Qual a idade do seu carro?'))
+if idade<=3:
+    print('Seu carro é novo!')
+else:
+    print('Seu carro é velho!')
+#um programa que pergunta a distância que o passageiro deseja percorrer em km
+#o preço da passagem para viajens até 200km é de R$0,50 por km e R$0,45 para viajens mais longas
+distância=int(input('Qual distãncia você deseja percorrer?'))
+if distância>200:
+    print('Preço a pagar é de R$%5.2f.'%(distância*0.50))
+else:
+    print('Preço a pagar é de R$%5.2f.'%(distância*0.45))
+#estruturas aninhadas, as vezes é preciso colocar um if dentro de outro if ou dentro de um else
+#para isso eles devem ser posicionado mais a direita
+minutos=int(input('Quantos minutos você utilizou este mês?'))
+if minutos<200:
+    preço=0.20
+else:
+    if minutos<400:
+        preço=0.18
+    else:
+        preço=0.15
+print('Você vai ter que pagar R$%6.2f esse mês'%(minutos*preço))
+#Há exemplos em que se precisa fazer varias categorias uma dentro da outra
+categoria=int(input('Digite a categoria do produto:'))
+if categoria==1:
+    preço=10
+else:
+    if categoria==2:
+        preço=18
+    else:
+        if categoria==3:
+            preço=23
+        else:
+            if categoria==4:
+                preço=26
+            else:
+                if categoria==5:
+                    preço=31
+                else:
+                    print('Categoria inválida, digite um valor entre 1 e 5!')
+                    preço=0
+print('O preço do produto é: R$%6.2f'%preço)
+#em um problema com multiplos if aninhados. O elif substitui um par de else e if sem criar outro nível na estrutura
+categoria=int(input('Digite a categoria do produto:(1 a 5): '))
+if categoria==1:
+    preço=10
+elif categoria==2:
+    preço=18
+elif categoria==3:
+    preço=23
+elif categoria==4:
+    preço=26
+elif categoria==5:
+    preço=31
+else:
+    print('Categoria inválida, digite um valor entre 1 e 5!')
+    preço=0
+print('O preço do produto é:R$%6.2f' %preço)
+#um programa que leia dois números e pergunta qual operação deseja fazer
+#pode ser soma, subtração, multiplicação ou divisão
+numero1=int(input('Digite o primeiro número:'))
+numero2=int(input('Digite o segundo número:'))
+operação=(input('Qual operação deseja realizar?(-,+,*,/): '))
+if operação=='-':
+    print(numero1-numero2)
+elif operação=='+':
+    print(numero1+numero2)
+elif operação=='*':
+    print(numero1*numero2)
+elif operação=='/':
+    print(numero1/numero2)
+#um programa de emprestimo de uma casa
+# o programa deve perguntar o valor da casa, o salario e a quantidade de anos a pagar
+#a prestação não deve ser maior q 30% do salário
+#o valor da prestação deve ser o valor da casa dividido pelo número de meses a pagar
+casa=float(input('Qual o valor da casa?'))
+salario=float(input('Qual o seu salário?'))
+tempo=(int(input('Quantos anos a pagar?')))*12
+prestação=casa/tempo
+if prestação>(0.30*salario):
+    print('Emprestimo negado')
+else:
+        print('Sua prestação será de R$%6.2f.'%prestação)
+#um programa que calcule o preço a pagar pela energia elétrica
+#pergunte a quantidade kWh consumida e e o tipo de instalação: R-residência, I-industria, C-comércio
+energia=int(input('Qual a quantidade em kWh foi consumido? :  '))
+instalação=input('Qual o tipo de instalação? (R,C,I): ')
+if instalação=='R':
+    if energia<500:
+        print('O valor é de R$ 0,40.')
+    else:
+        print('O valor é de R$ 0,65.')
+if instalação=='C':
+    if energia<1000:
+        print('O valor é de R$ 0,55.')
+    else:
+        print('O valor é de R$ 0,60.')
+if instalação=='I':
+    if energia<5000:
+        print('O valor é de R$ 0,55.')
+    else:
+        print('O valor é de R$ 0,60.')
+else:
+    print('Código não encontrado.') 
